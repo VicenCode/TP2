@@ -5,7 +5,7 @@ NE MODIFIEZ PAS CE FICHIER (sauf pour mettre certaines sections en commentaire l
 //ROBERTO EST-CE QUE TU VOIS CECI?:
 // OUI JE LE VOIS!!!!!
 //T'Es suuuur???
-
+//OUIIIII JE SUIS SUR!
 public class Main {
     public static void main(String[] args) {
         commencerTest("Ajout de mots et de lettres");
