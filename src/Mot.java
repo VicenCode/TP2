@@ -20,7 +20,7 @@ public class Mot {
     // AJOUTEZ VOTRE CODE CI-DESSOUS
 
     public String toString (){
-        String resultat;
+        String resultat = " ";
         for(int i = 0; i < nbLettres; i++)
             resultat += lettres[i];
 
