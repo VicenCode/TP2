@@ -20,15 +20,15 @@ public class Mot {
     // AJOUTEZ VOTRE CODE CI-DESSOUS
 
     public String toString (){
+        String resultat;
+        for(int i = 0; i < nbLettres; i++)
+            resultat += lettres[i];
 
-
-
+        return resultat;
     }
 
     public int getLongueur(){
-
         return nbLettres;
-
     }
 
 
@@ -36,26 +36,39 @@ public class Mot {
         return lettres[index];
     }
 
-    public void ajouter ( char lettre ){
+    public void ajouter (char lettre){
+        validerEspace();
 
-        if ( nbLettres == lettres.length){
-            char [] temp = agrandir();
-
-        }
+        lettres[nbLettres] = lettre;
+        nbLettres++;
     }
 
+    public boolean inserer(char lettre, int index) {
+        if(index < 0 || index > nbLettres)
+            return false;
+
+        validerEspace();
+        lettres[index] = lettre;
+        return true;
+    }
+
+    private void validerEspace() {
+        if (nbLettres == lettres.length){
+            char [] temp = agrandir();
+            recopier(temp);
+            lettres = temp;
+        }
+    }
 
     private char[] agrandir(){
         char [] temp = new char[lettres.length * 2 + 1];
         return temp;
     }
 
-    private void recopier (){
-        char [] nouveau = new char[lettres.length];
+    private void recopier (char[] temp){
         for ( int i = 0; i < lettres.length; i++){
-
+            temp[i] = lettres[i];
         }
-
     }
 
 }
