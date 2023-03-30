@@ -2,6 +2,8 @@
 
 NE MODIFIEZ PAS CE FICHIER (sauf pour mettre certaines sections en commentaire le temps de tester votre code) */
 
+//ROBERTO EST-CE QUE TU VOIS CECI?:
+
 public class Main {
     public static void main(String[] args) {
         commencerTest("Ajout de mots et de lettres");
