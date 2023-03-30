@@ -19,4 +19,43 @@ public class Mot {
 
     // AJOUTEZ VOTRE CODE CI-DESSOUS
 
+    public String toString (){
+
+
+
+    }
+
+    public int getLongueur(){
+
+        return nbLettres;
+
+    }
+
+
+    public char getLettre ( int index ){
+        return lettres[index];
+    }
+
+    public void ajouter ( char lettre ){
+
+        if ( nbLettres == lettres.length){
+            char [] temp = agrandir();
+
+        }
+    }
+
+
+    private char[] agrandir(){
+        char [] temp = new char[lettres.length * 2 + 1];
+        return temp;
+    }
+
+    private void recopier (){
+        char [] nouveau = new char[lettres.length];
+        for ( int i = 0; i < lettres.length; i++){
+
+        }
+
+    }
+
 }
