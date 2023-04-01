@@ -31,8 +31,15 @@ public class Phrase {
 
     // AJOUTEZ VOTRE CODE CI-DESSOUS
 
-    public void ajouter(Mot mot) {
-        // Codez-moi!
+    public void ajouter( char c ) {
+            if ( c == ' ' ){
+                Mot nouveau = new Mot(" ");
+                // finir
+            }
+            else {
+                getMot(nbMots).ajouter(c);
+
+            }
     }
 
     public void ajouter(Phrase autre) {
