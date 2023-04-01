@@ -71,6 +71,7 @@ public class Phrase {
         Mot motAIndex = getMot(indexMot);
         mot.suivant = motAIndex;
         getMot(indexMot - 1).suivant = mot;
+        nbMots++;
         return true;
     }
 
