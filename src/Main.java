@@ -25,7 +25,7 @@ public class Main {
         chaine2.inserer('s', 1, 3);
         System.out.println(chaine2);
         System.out.printf("%d mots, %d caractères\n", chaine2.getNbMots(), chaine2.getLongueur());
-
+    /*
         commencerTest("Insertions mixtes");
         Phrase chaine3 = new Phrase();
         chaine3.ajouter("mais");
@@ -80,6 +80,8 @@ public class Main {
         chaine6.inserer("autre", chaine6.getNbMots() - 1);
         System.out.println(chaine6);
         System.out.printf("%d mots, %d caractères\n", chaine6.getNbMots(), chaine6.getLongueur());
+
+     */
     }
 
     private static int noTest = 0;

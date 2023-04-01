@@ -42,8 +42,24 @@ public class Phrase {
             }
     }
 
+    public void ajouter(Mot mot) {
+
+    }
+
     public void ajouter(Phrase autre) {
         // Codez-moi!
+    }
+
+    public boolean inserer(char c, int indexMot, int indexLettre) {
+        if(getMot(indexMot) == null || getLettre(indexLettre) == 0)
+            return false;
+
+        getMot(indexMot).inserer(c, indexLettre);
+        return true;
+    }
+
+    public boolean inserer(Mot mot, int indexMot) {
+        return false;
     }
 
     public boolean inserer(Phrase autre, int indexMot) {
