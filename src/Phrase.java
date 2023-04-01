@@ -63,7 +63,31 @@ public class Phrase {
     }
 
     public int getLongueur() {
-        return this.toString().length(); //.trim() ?????
+        return this.toString().length();
+    }
+
+    public Mot getMot(int indexMot) {
+        if(indexMot < 0 || indexMot > nbMots)
+            return null;
+
+        int pos = 0;
+        Mot courant = premier;
+        while(pos != indexMot) {
+            courant = courant.suivant;
+            pos++;
+        }
+        return courant; //-----A verifer
+    }
+
+
+
+    public char getLettre(int indexMot, int indexLettre) {
+        Mot motRecherche = getMot(indexMot);
+        return motRecherche.getLettre(indexLettre); //-----A COMPLETER...
+    }
+
+    public char getLettre(int indexLettre) {
+        return this.toString().charAt(indexLettre); //-----A COMPLETER...
     }
 
 }
