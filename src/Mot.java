@@ -20,7 +20,7 @@ public class Mot {
     // AJOUTEZ VOTRE CODE CI-DESSOUS
 
     public String toString (){
-        String resultat = " ";
+        String resultat = "";
         for(int i = 0; i < nbLettres; i++)
             resultat += lettres[i];
 
@@ -48,7 +48,18 @@ public class Mot {
             return false;
 
         validerEspace();
-        lettres[index] = lettre;
+        char[] temp = new char[lettres.length];
+
+        for(int i = 0; i < index; i++)
+            temp[i] = lettres[i];
+
+        temp[index] = lettre;
+
+        for(int i = index + 1; i < lettres.length; i++)
+            temp[i] = lettres[i - 1];
+
+        lettres = temp;
+        nbLettres++;
         return true;
     }
 
