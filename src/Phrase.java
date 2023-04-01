@@ -4,12 +4,11 @@ public class Phrase {
     private Mot premier, dernier;
     private int nbMots;
 
-    private Mot prochain;
 
     public Phrase() {
         // N'hésitez pas à modifier ce constructeur au besoin.
         // Vos changements seront automatiquement appliqués au constructeur ci-dessous.
-        premier = dernier = prochain = null;
+        premier = dernier = null;
         nbMots = 0;
     }
 
@@ -47,12 +46,12 @@ public class Phrase {
 
     @Override
     public String toString() {
-        String resultat = premier + " ";
+        String resultat = "";
         Mot courant = premier;
 
         while(courant != null){
             resultat += courant + " ";
-            courant = prochain;
+            courant = courant.suivant;
         }
 
         return resultat;
@@ -64,19 +63,7 @@ public class Phrase {
     }
 
     public int getLongueur() {
-        return this.toString().length();
-    }
-
-    public Mot getMot(int indexMot) {
-        return null; //-----A COMPLETER...
-    }
-
-    public char getLettre(int indexMot, int indexLettre) {
-        return 'n'; //-----A COMPLETER...
-    }
-
-    public char getLettre(int indexLettre) {
-        return 'n'; //-----A COMPLETER...
+        return this.toString().length(); //.trim() ?????
     }
 
 }
