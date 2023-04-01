@@ -65,7 +65,13 @@ public class Phrase {
     }
 
     public boolean inserer(Mot mot, int indexMot) {
-        return false;
+        if(indexMot < 0 || indexMot > nbMots)
+            return false;
+
+        Mot motAIndex = getMot(indexMot);
+        mot.suivant = motAIndex;
+        getMot(indexMot - 1).suivant = mot;
+        return true;
     }
 
     public boolean inserer(Phrase autre, int indexMot) {
