@@ -35,15 +35,21 @@ public class Phrase {
             if ( c == ' ' ){
                 Mot nouveau = new Mot(" ");
                 // finir
+                nbMots++;
             }
             else {
-                getMot(nbMots).ajouter(c);
-
+                getMot(nbMots - 1).ajouter(c);
             }
     }
 
     public void ajouter(Mot mot) {
+        if(premier == null)
+            premier = mot;
 
+        else{
+            getMot(nbMots - 1).suivant = mot;
+        }
+        nbMots++;
     }
 
     public void ajouter(Phrase autre) {
@@ -95,14 +101,14 @@ public class Phrase {
 
         int pos = 0;
         Mot courant = premier;
-        while(pos != indexMot) {
+        while(courant != null) {
+            if(pos == indexMot)
+                break;
             courant = courant.suivant;
             pos++;
         }
         return courant; //-----A verifer
     }
-
-
 
     public char getLettre(int indexMot, int indexLettre) {
         Mot motRecherche = getMot(indexMot);
