@@ -25,7 +25,7 @@ public class Main {
         chaine2.inserer('s', 1, 3);
         System.out.println(chaine2);
         System.out.printf("%d mots, %d caractères\n", chaine2.getNbMots(), chaine2.getLongueur());
-    /*
+
         commencerTest("Insertions mixtes");
         Phrase chaine3 = new Phrase();
         chaine3.ajouter("mais");
@@ -41,7 +41,7 @@ public class Main {
         chaine3.ajouter("où?");
         System.out.println(chaine3);
         System.out.printf("%d mots, %d caractères\n", chaine3.getNbMots(), chaine3.getLongueur());
-
+///*
         commencerTest("Validation de getMot() et getLettre()");
         Phrase chaine4 = new Phrase(chaine3.toString());
         System.out.print(chaine3.getMot(0));
@@ -81,7 +81,7 @@ public class Main {
         System.out.println(chaine6);
         System.out.printf("%d mots, %d caractères\n", chaine6.getNbMots(), chaine6.getLongueur());
 
-     */
+     //*/
     }
 
     private static int noTest = 0;

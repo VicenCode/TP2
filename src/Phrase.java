@@ -17,6 +17,7 @@ public class Phrase {
         // Vous devrez coder la méthode ajouter(Mot mot) pour que cela fonctionne.
         this();
         String[] mots = str.split("\s");
+
         for (String mot : mots)
             ajouter(new Mot(mot));
     }
@@ -53,7 +54,16 @@ public class Phrase {
     }
 
     public void ajouter(Phrase autre) {
-        // Codez-moi!
+        if(nbMots == 0) {
+            premier = autre.premier;
+            nbMots = autre.nbMots;
+        }
+        else {
+            Mot dernier = getMot(nbMots - 1);
+            dernier.suivant = autre.premier;
+
+            nbMots += autre.nbMots;
+        }
     }
 
     public boolean inserer(char c, int indexMot, int indexLettre) {
@@ -76,7 +86,20 @@ public class Phrase {
     }
 
     public boolean inserer(Phrase autre, int indexMot) {
-        // Codez-moi!
+        if(indexMot < 0 || indexMot > nbMots)
+            return false;
+
+        if(indexMot == 0) {
+            //A COMPLETER-------------------------------------------------------------------------
+            return true;
+        }
+
+        Mot avantIndex = getMot(indexMot - 1);
+
+        avantIndex.suivant = autre.premier;
+        Mot dernierAutre = autre.getMot(autre.nbMots - 1);
+        dernierAutre.suivant = getMot(indexMot);
+        nbMots += autre.nbMots;
         return true;
     }
 
