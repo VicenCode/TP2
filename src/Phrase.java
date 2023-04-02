@@ -34,9 +34,9 @@ public class Phrase {
 
     public void ajouter( char c ) {
             if ( c == ' ' ){
-                Mot nouveau = new Mot(" ");
-                // finir
-                nbMots++;
+                Mot nouveau = new Mot();
+                ajouter(nouveau);
+                //nbMots++;
             }
             else {
                 getMot(nbMots - 1).ajouter(c);
@@ -89,18 +89,32 @@ public class Phrase {
         if(indexMot < 0 || indexMot > nbMots)
             return false;
 
+        int nbMotsAutre = autre.nbMots;
+
         if(indexMot == 0) {
-            //A COMPLETER-------------------------------------------------------------------------
+            Mot dernierAutre = trouveDernierMot(autre);
+
+            dernierAutre.suivant = premier;
+            premier = autre.premier;
+            nbMots += nbMotsAutre;
             return true;
         }
 
         Mot avantIndex = getMot(indexMot - 1);
-
+        Mot dernierAutre = trouveDernierMot(autre);
+        dernierAutre.suivant = avantIndex.suivant;
         avantIndex.suivant = autre.premier;
-        Mot dernierAutre = autre.getMot(autre.nbMots - 1);
-        dernierAutre.suivant = getMot(indexMot);
-        nbMots += autre.nbMots;
+        //dernierAutre.suivant = getMot(indexMot);
+        nbMots += nbMotsAutre;
         return true;
+    }
+
+    private Mot trouveDernierMot(Phrase recherche) {
+        Mot dernierMot = recherche.premier;
+        while(dernierMot.suivant != null)
+          dernierMot = dernierMot.suivant;
+
+        return dernierMot;
     }
 
     @Override
@@ -109,7 +123,7 @@ public class Phrase {
         Mot courant = premier;
 
         while(courant != null){
-            resultat += courant + " ";
+            resultat += courant;
             courant = courant.suivant;
         }
 

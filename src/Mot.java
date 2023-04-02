@@ -24,7 +24,7 @@ public class Mot {
         for(int i = 0; i < nbLettres; i++)
             resultat += lettres[i];
 
-        return resultat;
+        return resultat + " ";
     }
 
     public int getLongueur(){
