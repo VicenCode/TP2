@@ -67,7 +67,7 @@ public class Phrase {
     }
 
     public boolean inserer(char c, int indexMot, int indexLettre) {
-        if(getMot(indexMot) == null || getLettre(indexLettre) == 0)
+        if(getMot(indexMot) == null || getMot(indexMot).getLongueur() < indexLettre)
             return false;
 
         getMot(indexMot).inserer(c, indexLettre);
@@ -156,6 +156,9 @@ public class Phrase {
 
     public char getLettre(int indexMot, int indexLettre) {
         Mot motRecherche = getMot(indexMot);
+//        if(indexLettre > motRecherche.getLongueur())
+//            return 0;
+
         return motRecherche.getLettre(indexLettre); //-----A COMPLETER...
     }
 
