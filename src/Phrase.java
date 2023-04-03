@@ -4,6 +4,7 @@ public class Phrase {
     private Mot premier, dernier;
     private int nbMots;
 
+    private final char ESPACE = ' ';
 
     public Phrase() {
         // N'hésitez pas à modifier ce constructeur au besoin.
@@ -33,13 +34,12 @@ public class Phrase {
     // AJOUTEZ VOTRE CODE CI-DESSOUS
 
     public void ajouter( char c ) {
-            if ( c == ' ' ){
+            if ( c == ESPACE ){
                 Mot nouveau = new Mot();
                 ajouter(nouveau);
-                //nbMots++;
             }
             else {
-                getMot(nbMots - 1).ajouter(c);
+                trouveDernierMot(this).ajouter(c);
             }
     }
 
@@ -48,7 +48,7 @@ public class Phrase {
             premier = mot;
 
         else{
-            getMot(nbMots - 1).suivant = mot;
+            trouveDernierMot(this).suivant = mot;
         }
         nbMots++;
     }
@@ -59,7 +59,7 @@ public class Phrase {
             nbMots = autre.nbMots;
         }
         else {
-            Mot dernier = getMot(nbMots - 1);
+            Mot dernier = trouveDernierMot(this);
             dernier.suivant = autre.premier;
 
             nbMots += autre.nbMots;
@@ -78,8 +78,8 @@ public class Phrase {
         if(indexMot < 0 || indexMot > nbMots)
             return false;
 
-        Mot motAIndex = getMot(indexMot);
-        mot.suivant = motAIndex;
+        //Mot motAIndex = getMot(indexMot);
+        mot.suivant = getMot(indexMot);
         getMot(indexMot - 1).suivant = mot;
         nbMots++;
         return true;
@@ -104,7 +104,6 @@ public class Phrase {
         Mot dernierAutre = trouveDernierMot(autre);
         dernierAutre.suivant = avantIndex.suivant;
         avantIndex.suivant = autre.premier;
-        //dernierAutre.suivant = getMot(indexMot);
         nbMots += nbMotsAutre;
         return true;
     }
@@ -145,25 +144,24 @@ public class Phrase {
 
         int pos = 0;
         Mot courant = premier;
+
         while(courant != null) {
             if(pos == indexMot)
                 break;
+
             courant = courant.suivant;
             pos++;
         }
-        return courant; //-----A verifer
+        return courant;
     }
 
     public char getLettre(int indexMot, int indexLettre) {
         Mot motRecherche = getMot(indexMot);
-//        if(indexLettre > motRecherche.getLongueur())
-//            return 0;
-
-        return motRecherche.getLettre(indexLettre); //-----A COMPLETER...
+        return motRecherche.getLettre(indexLettre);
     }
 
     public char getLettre(int indexLettre) {
-        return this.toString().charAt(indexLettre); //-----A COMPLETER...
+        return this.toString().charAt(indexLettre);
     }
 
 }
